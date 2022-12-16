@@ -12,6 +12,7 @@ describe('Filter and Sort', () => {
 		cy.get(Authentication.signInRegisterBtn).should('be.visible')
 		cy.get(Authentication.signInRegisterBtn).click()
     Authentication.login('marsenal2@yopmail.com', 'Password123!')
+		cy.url().should('contain', 'products')
 
 			//sort products from A to Z
 		cy.get(Sort.sortOptions).scrollIntoView()
@@ -34,6 +35,7 @@ describe('Filter and Sort', () => {
 		cy.get(Authentication.signInRegisterBtn).should('be.visible')
 		cy.get(Authentication.signInRegisterBtn).click()
     Authentication.login('marsenal2@yopmail.com', 'Password123!')
+		cy.url().should('contain', 'products')
 
 			//sort products from Z to A
 		cy.get(Sort.sortOptions).scrollIntoView()
@@ -56,6 +58,7 @@ describe('Filter and Sort', () => {
 		cy.get(Authentication.signInRegisterBtn).should('be.visible')
 		cy.get(Authentication.signInRegisterBtn).click()
     Authentication.login('marsenal2@yopmail.com', 'Password123!')
+		cy.url().should('contain', 'products')
 
 			//sort products by price from high to low
 		cy.get(Sort.sortOptions).scrollIntoView()
