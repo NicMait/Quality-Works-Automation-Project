@@ -9,8 +9,8 @@ describe('Add To Cart', () => {
 
 	it('Add a single item to cart', () => {
 			// Login with valid credentials
-		cy.get('#signInOrRegister').should('be.visible')
-		cy.get('#signInOrRegister').click()
+		cy.get(Authentication.signInRegisterBtn).should('be.visible')
+		cy.get(Authentication.signInRegisterBtn).click()
     Authentication.login('marsenal2@yopmail.com', 'Password123!')
 		cy.url().should('contain', 'products')
 			//Add a product to cart
@@ -25,8 +25,8 @@ describe('Add To Cart', () => {
 
   it('Add multiple items to cart', () => {
 	  // Login with valid credentials
-	 cy.get('#signInOrRegister').should('be.visible')
-	 cy.get('#signInOrRegister').click()
+	 cy.get(Authentication.signInRegisterBtn).should('be.visible')
+	 cy.get(Authentication.signInRegisterBtn).click()
 	 Authentication.login('marsenal2@yopmail.com', 'Password123!')
 	 cy.url().should('contain', 'products')
 	  //Add a product to cart
@@ -48,8 +48,8 @@ describe('Add To Cart', () => {
 
   it('Add an item to cart from the product details page', () => {
 	// Login with valid credentials
-	 cy.get('#signInOrRegister').should('be.visible')
-	 cy.get('#signInOrRegister').click()
+	 cy.get(Authentication.signInRegisterBtn).should('be.visible')
+	 cy.get(Authentication.signInRegisterBtn).click()
 	 Authentication.login('marsenal2@yopmail.com', 'Password123!')
 	 cy.url().should('contain', 'products')
 	    //Select a product to view
