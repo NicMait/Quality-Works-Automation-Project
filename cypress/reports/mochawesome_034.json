@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-17T06:28:52.526Z",
+    "end": "2022-12-17T06:29:12.501Z",
+    "duration": 19975,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f1159bbe-0f73-4d48-94c7-58b9685e8b4d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\login.cy.js",
+      "file": "cypress\\e2e\\tests\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "69fd8e49-3788-497e-b5f1-c16275e97c44",
+          "title": "Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should log in a valid user",
+              "fullTitle": "Authentication Should log in a valid user",
+              "timedOut": null,
+              "duration": 14291,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products');",
+              "err": {},
+              "uuid": "3ab65b6e-e67d-4fc2-a958-c40b7b5bd7e5",
+              "parentUUID": "69fd8e49-3788-497e-b5f1-c16275e97c44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Log in with invalid email",
+              "fullTitle": "Authentication Log in with invalid email",
+              "timedOut": null,
+              "duration": 5443,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with invalid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\ncy.get(_authentication.default.emailField).type('blackinferno@yopmail.com'); //email not registered\ncy.get(_authentication.default.passwordField).type('notTrue123!');\ncy.get(_authentication.default.submitBtn).should('be.visible');\ncy.get(_authentication.default.submitBtn).click();\ncy.get(_authentication.default.errorMsg).should('be.visible');\ncy.get(_authentication.default.errorMsg).should('have.text', 'Wrong email or password.');",
+              "err": {},
+              "uuid": "7d481983-287e-4595-aa53-0dbd0a58e64c",
+              "parentUUID": "69fd8e49-3788-497e-b5f1-c16275e97c44",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3ab65b6e-e67d-4fc2-a958-c40b7b5bd7e5",
+            "7d481983-287e-4595-aa53-0dbd0a58e64c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19734,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

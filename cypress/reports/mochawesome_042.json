@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-17T06:50:41.524Z",
+    "end": "2022-12-17T06:51:28.574Z",
+    "duration": 47050,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "eed59ac9-81ae-4790-ae9a-2203be9d3280",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\contact.cy.js",
+      "file": "cypress\\e2e\\tests\\contact.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d7631fc6-f73e-47e7-b359-c0a2698e0da2",
+          "title": "Contact",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Send a message",
+              "fullTitle": "Contact Send a message",
+              "timedOut": null,
+              "duration": 19155,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Navigate to contact\ncy.get(_contact.default.contactBtn).click();\ncy.url().should('contain', 'contact');\ncy.get(_contact.default.messageHeader).should('have.text', \"Want to get in touch?\"); //Enter message details\n_contact.default.enterMessage(); //Send message\n\ncy.get(_contact.default.sendMessage).click();\ncy.get(_contact.default.confirmation).should('be.visible');\ncy.get(_contact.default.confirmation).should('have.text', 'Message Sent!Your message has been sent!');",
+              "err": {},
+              "uuid": "12362aea-36d9-4804-b7a4-10c7dec62475",
+              "parentUUID": "d7631fc6-f73e-47e7-b359-c0a2698e0da2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Input invalid email",
+              "fullTitle": "Contact Input invalid email",
+              "timedOut": null,
+              "duration": 15204,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Navigate to contact\ncy.get(_contact.default.contactBtn).click();\ncy.url().should('contain', 'contact');\ncy.get(_contact.default.messageHeader).should('have.text', \"Want to get in touch?\"); //Enter message details\ncy.get(_contact.default.firstName).type('Levi');\ncy.get(_contact.default.lastName).type('Morgan');\ncy.get(_contact.default.emailAddress).type('invalid@com'); //invalid email is entered\ncy.get(_contact.default.subject).type('This is a test');\ncy.get(_contact.default.message).type('It is a test.'); //Send message\ncy.get(_contact.default.sendMessage).click();\ncy.get(_contact.default.emailError).should('be.visible');\ncy.get(_contact.default.emailError).should('have.text', \"Email is invalid\");",
+              "err": {},
+              "uuid": "11fe6248-88cb-4397-87ec-95c36bb8a5f5",
+              "parentUUID": "d7631fc6-f73e-47e7-b359-c0a2698e0da2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Submit empty message",
+              "fullTitle": "Contact Submit empty message",
+              "timedOut": null,
+              "duration": 12002,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Navigate to contact\ncy.get(_contact.default.contactBtn).click();\ncy.url().should('contain', 'contact');\ncy.get(_contact.default.messageHeader).should('have.text', \"Want to get in touch?\"); //Submit with all fields empty\ncy.get(_contact.default.sendMessage).click(); //Error messages should be shown\ncy.get(_contact.default.firstNameError).should('be.visible');\ncy.get(_contact.default.firstNameError).should('have.text', \"Field is required!\");\ncy.get(_contact.default.lastNameError).should('be.visible');\ncy.get(_contact.default.lastNameError).should('have.text', \"Field is required!\");\ncy.get(_contact.default.emailAddError).should('be.visible');\ncy.get(_contact.default.emailAddError).should('have.text', \"Field is required!\");\ncy.get(_contact.default.subjectError).should('be.visible');\ncy.get(_contact.default.subjectError).should('have.text', \"Field is required!\");\ncy.get(_contact.default.messageError).should('be.visible');\ncy.get(_contact.default.messageError).should('have.text', \"Field is required!\");",
+              "err": {},
+              "uuid": "4a9f7a78-21f2-4699-9a74-a0ab4e61772e",
+              "parentUUID": "d7631fc6-f73e-47e7-b359-c0a2698e0da2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "12362aea-36d9-4804-b7a4-10c7dec62475",
+            "11fe6248-88cb-4397-87ec-95c36bb8a5f5",
+            "4a9f7a78-21f2-4699-9a74-a0ab4e61772e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 46361,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

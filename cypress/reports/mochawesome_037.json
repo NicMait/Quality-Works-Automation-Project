@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-17T06:41:24.308Z",
+    "end": "2022-12-17T06:42:16.007Z",
+    "duration": 51699,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9f1dac41-d056-4c43-a7f0-36549dc59eab",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\cart.cy.js",
+      "file": "cypress\\e2e\\tests\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ef40515c-d735-4271-877f-4c1c1f232bfa",
+          "title": "Cart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "View products in cart",
+              "fullTitle": "Cart View products in cart",
+              "timedOut": null,
+              "duration": 18694,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Add products to the cart\n_addtocart.default.addToCart();\ncy.get(_addtocart.default.heelsHeader).should('be.visible');\ncy.get(_addtocart.default.heelsHeader).should('have.text', \" Quality Heal Shoes \");\ncy.get(_addtocart.default.backToShopping).should('be.visible');\ncy.get(_addtocart.default.backToShopping).click();\n_addtocart.default.addToCartTwo();\ncy.get(_addtocart.default.cartSummary).should('be.visible');\ncy.get(_addtocart.default.cartSummary).should('have.text', ' Cart summary ');\ncy.get(_addtocart.default.jeansHeader).should('be.visible');\ncy.get(_addtocart.default.jeansHeader).should('have.text', \" Quality Jeans Pants \");\ncy.get(_addtocart.default.backToShopping).should('be.visible');\ncy.get(_addtocart.default.backToShopping).click(); //Navigate to cart\n_cart.default.cartDetails();\ncy.url().should('contain', 'cart');\ncy.wait(3000);\ncy.get(_cart.default.heelsInCart).should('be.visible');\ncy.get(_cart.default.heelsInCart).should('have.text', \" Quality Heal Shoes \");\ncy.get(_cart.default.jeansInCart).should('be.visible');\ncy.get(_cart.default.jeansInCart).should('have.text', \" Quality Jeans Pants \");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-item-line__title`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-item-line__title`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/tests/cart.cy.js:20:34)",
+                "diff": null
+              },
+              "uuid": "4b6c1788-ed53-4dfd-9f5a-8e113fe5e223",
+              "parentUUID": "ef40515c-d735-4271-877f-4c1c1f232bfa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete a product from cart",
+              "fullTitle": "Cart Delete a product from cart",
+              "timedOut": null,
+              "duration": 15884,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Add a product to the cart\n_addtocart.default.addToCart();\ncy.get(_addtocart.default.backToShopping).should('be.visible');\ncy.get(_addtocart.default.backToShopping).click(); //Navigate to cart\n_cart.default.cartDetails();\ncy.get(_productgallery.default.cartQuantity).should('have.text', \" 1 \"); // Remove a product from the cart\ncy.get(_cart.default.deleteProduct).click();\ncy.get(_productgallery.default.cartQuantity).should('have.text', \" 0 \");",
+              "err": {},
+              "uuid": "c0db07b9-7d81-408a-9a22-ee139876af6f",
+              "parentUUID": "ef40515c-d735-4271-877f-4c1c1f232bfa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Increase the quantity of the product in the cart",
+              "fullTitle": "Cart Increase the quantity of the product in the cart",
+              "timedOut": null,
+              "duration": 16655,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Add a product to the cart\n_addtocart.default.addToCart();\ncy.get(_addtocart.default.backToShopping).should('be.visible');\ncy.get(_addtocart.default.backToShopping).click(); //Navigate to cart\n_cart.default.cartDetails(); // Increase the product quantity\n\ncy.get(_cart.default.quantityIncrease).should('be.visible');\ncy.get(_cart.default.quantityIncrease).click();\ncy.get(_cart.default.productQuantity).should('have.text', \"2\");\ncy.get('.snipcart-item-quantity__total-price').should('have.text', \" $40.00 \");",
+              "err": {},
+              "uuid": "a064353e-8251-44e0-9dec-a6ee9b323fc3",
+              "parentUUID": "ef40515c-d735-4271-877f-4c1c1f232bfa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c0db07b9-7d81-408a-9a22-ee139876af6f",
+            "a064353e-8251-44e0-9dec-a6ee9b323fc3"
+          ],
+          "failures": [
+            "4b6c1788-ed53-4dfd-9f5a-8e113fe5e223"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 51233,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
