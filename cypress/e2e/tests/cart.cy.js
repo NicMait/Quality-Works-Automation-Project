@@ -41,9 +41,10 @@ describe('Cart', () => {
 	it('Delete a product from cart', () => {
 
 		  // Login with valid credentials
-		cy.get('#signInOrRegister').should('be.visible')
-		cy.get('#signInOrRegister').click()
-		Authentication.login('marsenal2@yopmail.com', 'Password123!')
+		cy.get(Authentication.signInRegisterBtn).should('be.visible')
+		cy.get(Authentication.signInRegisterBtn).click()
+    Authentication.login('marsenal2@yopmail.com', 'Password123!')
+		cy.url().should('contain', 'products')
 
 	   	//Add a product to the cart
 		AddToCart.addToCart()
@@ -52,6 +53,7 @@ describe('Cart', () => {
 
 		  //Navigate to cart
 		Cart.cartDetails()
+		cy.get(Gallery.cartQuantity).should('have.text'," 1 ")
 
 	   // Remove a product from the cart
     cy.get(Cart.deleteProduct).click()
@@ -62,9 +64,9 @@ describe('Cart', () => {
 	it('Increase the quantity of the product in the cart', () => {
 
 		// Login with valid credentials
-		cy.get('#signInOrRegister').should('be.visible')
-		cy.get('#signInOrRegister').click()
-		Authentication.login('marsenal2@yopmail.com', 'Password123!')
+		cy.get(Authentication.signInRegisterBtn).should('be.visible')
+		cy.get(Authentication.signInRegisterBtn).click()
+    Authentication.login('marsenal2@yopmail.com', 'Password123!')
 		cy.url().should('contain', 'products')
 
 		//Add a product to the cart
@@ -79,6 +81,7 @@ describe('Cart', () => {
 	  cy.get(Cart.quantityIncrease).should('be.visible')
 		cy.get(Cart.quantityIncrease).click()
 		cy.get(Cart.productQuantity).should('have.text', "2")
+		cy.get('.snipcart-item-quantity__total-price').should('have.text'," $40.00 ")
 
 	})
 
