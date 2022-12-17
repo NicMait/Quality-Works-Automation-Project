@@ -5,15 +5,15 @@ The project covers the user interface test automation of nine key areas of the e
 The framework being used is Cypress.
 
 # Areas Automated
-*Authentication
-*Cart
-*Add To Cart
-*Search
-*Contact
-*Product Gallery
-*Product Details
-*Filter and Sort
-*Checkout
+1. Authentication
+2. Cart
+3. Add To Cart
+4. Search
+5. Contact
+6. Product Gallery
+7. Product Details
+8. Filter and Sort
+9. Checkout
 
 ### Dependencies
 1. NodeJS v12, v14 or above
@@ -52,7 +52,6 @@ Executes all tests in the Chrome browser and generates a Mochawesome report.
 ```npx cypress run --spec cypress/e2e/tests/login.cy.js```
 
 "registration":
-
 ```npx cypress run --spec cypress/e2e/tests/registration.cy.js```
 
  "cart":
