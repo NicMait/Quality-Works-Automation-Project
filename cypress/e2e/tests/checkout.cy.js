@@ -20,7 +20,6 @@ describe('Checkout', () => {
 
 			//Add products to the cart
 		AddToCart.addToCart()
-	  cy.get(AddToCart.backToShopping).should('be.visible')
     cy.get (AddToCart.backToShopping).click()
 	  AddToCart.addToCartTwo()
 	  cy.get(AddToCart.cartSummary).should('be.visible')
