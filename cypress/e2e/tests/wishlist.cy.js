@@ -16,9 +16,9 @@ describe('Wishlist', () => {
 		cy.url().should('contain', 'products')
 
 		//Add a product to favorites from the product gallery
-
 		cy.get(Wishlist.mousepadFave).should('be.visible')
 		cy.get(Wishlist.mousepadFave).click()
+		cy.get(Wishlist.faveNotification).should('be.visible')
 
 		//confirm addition to favorites
 		cy.get(Wishlist.faveCount).should('have.text',"Favorites [1]")
@@ -40,13 +40,14 @@ describe('Wishlist', () => {
 	  cy.get(Wishlist.vneckFave).should('be.visible')
 	   cy.wait(3000)
 	  cy.get(Wishlist.vneckFave).click()//add vneck to favorites
+		cy.get(Wishlist.faveNotification).should('be.visible')
 
 	 //confirm addition to faves
 	  cy.get(Wishlist.faveCount).should('have.text',"Favorites [1]")
 
   })
 
-  it('Remove an item from favorites', () => {
+  it.only('Remove an item from favorites', () => {
 	   // Login with valid credentials
    cy.get(Authentication.signInRegisterBtn).should('be.visible')
    cy.get(Authentication.signInRegisterBtn).click()
@@ -59,6 +60,7 @@ describe('Wishlist', () => {
    //Remove item
    cy.get(Wishlist.removeFave).should('be.visible')
    cy.get(Wishlist.removeFave).click()
+	 cy.get(Wishlist.removeNotification).should('be.visible')
    cy.get(Wishlist.emptyFave).should('have.text',"No favorites added!")
 
   })
