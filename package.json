@@ -1,17 +1,34 @@
 {
   "name": "quality-works-automation-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Final Project for Quality Work Test Automation Bootcamp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -R -f cypress/reports; mkdir cypress/reports; rm -f mochawesome.json",
+    "run": "npx cypress run",
+    "test": "npm-run-all clean run report -c",
+    "test:spec": "npm-run-all clean \"run -- --spec {1}\" report -c --",
+    "report": "npx mochawesome-merge cypress/reports/*.json > mochawesome.json && npx marge mochawesome.json && start mochawesome-report/mochawesome.html && rm -f mochawesome.json",
+    "add to cart":"npx cypress run --spec cypress/e2e/tests/datadriven.cy.js",
+    "login":"npx cypress run --spec cypress/e2e/tests/login.cy.js",
+    "registration":"npx cypress run --spec cypress/e2e/tests/registration.cy.js",
+    "cart":"npx cypress run --spec cypress/e2e/tests/cart.cy.js",
+    "checkout":"npx cypress run --spec cypress/e2e/tests/checkout.cy.js",
+    "product gallery":"npx cypress run --spec cypress/e2e/tests/productgallery.cy.js",
+    "product details":"npx cypress run --spec cypress/e2e/tests/productdetails.cy.js",
+    "filter and sort":"npx cypress run --spec cypress/e2e/tests/filterandsort.cy.js",
+    "contact":"npx cypress run --spec cypress/e2e/tests/contact.cy.js",
+    "search":"npx cypress run --spec cypress/e2e/tests/search.cy.js",
+    "data driven":"npx cypress run --spec cypress/e2e/tests/datadriven.cy.js"
+
+
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NicMait/Quality-Works-Automation-Project.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nicole Maitland",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NicMait/Quality-Works-Automation-Project/issues"
@@ -22,7 +39,7 @@
     "cypress": "^12.1.0",
     "cypress-iframe": "^1.0.1",
     "mochawesome": "^7.1.3",
-    "mochawesome-merge": "^4.2.1",
+    "mochawesome-merge": "^4.2.2",
     "mochawesome-report-generator": "^6.2.0",
     "npm-run-all": "^4.1.5"
   }

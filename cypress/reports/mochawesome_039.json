@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-17T06:45:28.503Z",
+    "end": "2022-12-17T06:46:07.572Z",
+    "duration": 39069,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6cca7fba-acd8-4647-af73-25ff31c66a8d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\productgallery.cy.js",
+      "file": "cypress\\e2e\\tests\\productgallery.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cc1f858c-666f-4945-abb6-90d1eaa7dc39",
+          "title": "Add To Cart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "View Product Details",
+              "fullTitle": "Add To Cart View Product Details",
+              "timedOut": null,
+              "duration": 16334,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //View product details\ncy.get(_productgallery.default.vneckDetails).click();\ncy.url().should('contain', 'quality-tshirt-vneck');\ncy.get(_productgallery.default.vneckHeader).should('be.visible');",
+              "err": {},
+              "uuid": "5ac92b0d-67b1-42db-812c-497a5e1bc3fa",
+              "parentUUID": "cc1f858c-666f-4945-abb6-90d1eaa7dc39",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should increase the quantity of a product",
+              "fullTitle": "Add To Cart Should increase the quantity of a product",
+              "timedOut": null,
+              "duration": 12200,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Increase the quantity of a product\ncy.get(_productgallery.default.productIncrease).should('be.visible');\ncy.get(_productgallery.default.productIncrease).click();\ncy.get(_productgallery.default.clickArea).click(); //Add to cart to confirm that the quantity has been recorded\ncy.get(_productgallery.default.hoodyAddToCart).scrollIntoView();\ncy.wait(1500);\ncy.get(_productgallery.default.hoodyAddToCart).click();\ncy.get(_addtocart.default.cartSummary).should('be.visible');\ncy.get(_addtocart.default.cartSummary).should('have.text', ' Cart summary ');\ncy.get(_productgallery.default.cartQuantity).should('have.text', \" 2 \");",
+              "err": {},
+              "uuid": "fa6a7654-f367-4967-9d3c-43e972571350",
+              "parentUUID": "cc1f858c-666f-4945-abb6-90d1eaa7dc39",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should sign out from the product gallery page",
+              "fullTitle": "Add To Cart Should sign out from the product gallery page",
+              "timedOut": null,
+              "duration": 10263,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Sign out from the home page/product gallery\ncy.get(_productgallery.default.logOut).should('be.visible');\ncy.get(_productgallery.default.logOut).click();\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');",
+              "err": {},
+              "uuid": "5e2f6dcf-d14d-42b2-8c67-229f1182dae2",
+              "parentUUID": "cc1f858c-666f-4945-abb6-90d1eaa7dc39",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5ac92b0d-67b1-42db-812c-497a5e1bc3fa",
+            "fa6a7654-f367-4967-9d3c-43e972571350",
+            "5e2f6dcf-d14d-42b2-8c67-229f1182dae2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 38797,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

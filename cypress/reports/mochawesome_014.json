@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2022-12-17T05:29:07.967Z",
+    "end": "2022-12-17T05:29:53.082Z",
+    "duration": 45115,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1bc31c80-9fcd-454c-8d7c-597c1fb0ec0d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\contact.cy.js",
+      "file": "cypress\\e2e\\tests\\contact.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e0dd0f0e-ab6a-4b55-8ba8-fb3a5fbe4028",
+          "title": "Contact",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Send a message",
+              "fullTitle": "Contact Send a message",
+              "timedOut": null,
+              "duration": 15380,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Navigate to contact\ncy.get(_contact.default.contactBtn).click();\ncy.url().should('contain', 'contact');\ncy.get(_contact.default.messageHeader).should('have.text', \"Want to get in touch?\"); //Enter message details\n_contact.default.enterMessage(); //Send message\n\ncy.get(_contact.default.sendMessage).click();\ncy.get(_contact.default.confirmation).should('be.visible');\ncy.get(_contact.default.confirmation).should('have.text', 'Message Sent!Your message has been sent!');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'https://ui-automation-camp.vercel.app/products' to include 'contact'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'https://ui-automation-camp.vercel.app/products' to include 'contact'\n    at Context.eval (webpack:///./cypress/e2e/tests/contact.cy.js:18:11)",
+                "diff": null
+              },
+              "uuid": "9e57a95d-3edb-4342-802e-aa5078b98b57",
+              "parentUUID": "e0dd0f0e-ab6a-4b55-8ba8-fb3a5fbe4028",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Input invalid email",
+              "fullTitle": "Contact Input invalid email",
+              "timedOut": null,
+              "duration": 11854,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Navigate to contact\ncy.get(_contact.default.contactBtn).click();\ncy.url().should('contain', 'contact');\ncy.get(_contact.default.messageHeader).should('have.text', \"Want to get in touch?\"); //Enter message details\ncy.get(_contact.default.firstName).type('Levi');\ncy.get(_contact.default.lastName).type('Morgan');\ncy.get(_contact.default.emailAddress).type('invalid@com'); //invalid email is entered\ncy.get(_contact.default.subject).type('This is a test');\ncy.get(_contact.default.message).type('It is a test.'); //Send message\ncy.get(_contact.default.sendMessage).click();\ncy.get(_contact.default.emailError).should('be.visible');\ncy.get(_contact.default.emailError).should('have.text', \"Email is invalid\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'chrome-error://chromewebdata/' to include 'products'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'chrome-error://chromewebdata/' to include 'products'\n    at Context.eval (webpack:///./cypress/e2e/tests/contact.cy.js:34:11)",
+                "diff": null
+              },
+              "uuid": "3aea3862-f52e-4212-93ba-ac7fd8b5a689",
+              "parentUUID": "e0dd0f0e-ab6a-4b55-8ba8-fb3a5fbe4028",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Submit empty message",
+              "fullTitle": "Contact Submit empty message",
+              "timedOut": null,
+              "duration": 17583,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Navigate to contact\ncy.get(_contact.default.contactBtn).click();\ncy.url().should('contain', 'contact');\ncy.get(_contact.default.messageHeader).should('have.text', \"Want to get in touch?\"); //Submit with all fields empty\ncy.get(_contact.default.sendMessage).click(); //Error messages should be shown\ncy.get(_contact.default.firstNameError).should('be.visible');\ncy.get(_contact.default.firstNameError).should('have.text', \"Field is required!\");\ncy.get(_contact.default.lastNameError).should('be.visible');\ncy.get(_contact.default.lastNameError).should('have.text', \"Field is required!\");\ncy.get(_contact.default.emailAddError).should('be.visible');\ncy.get(_contact.default.emailAddError).should('have.text', \"Field is required!\");\ncy.get(_contact.default.subjectError).should('be.visible');\ncy.get(_contact.default.subjectError).should('have.text', \"Field is required!\");\ncy.get(_contact.default.messageError).should('be.visible');\ncy.get(_contact.default.messageError).should('have.text', \"Field is required!\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'https://ui-automation-camp.vercel.app/products' to include 'contact'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'https://ui-automation-camp.vercel.app/products' to include 'contact'\n    at Context.eval (webpack:///./cypress/e2e/tests/contact.cy.js:61:13)",
+                "diff": null
+              },
+              "uuid": "f2d5c0f2-6f2d-4b9f-9507-e17482c3dfec",
+              "parentUUID": "e0dd0f0e-ab6a-4b55-8ba8-fb3a5fbe4028",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "9e57a95d-3edb-4342-802e-aa5078b98b57",
+            "3aea3862-f52e-4212-93ba-ac7fd8b5a689",
+            "f2d5c0f2-6f2d-4b9f-9507-e17482c3dfec"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 44817,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

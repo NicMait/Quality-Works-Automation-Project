@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-17T05:55:05.128Z",
+    "end": "2022-12-17T05:55:25.325Z",
+    "duration": 20197,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "796a6442-f90c-455f-8e52-d593b00a913c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\login.cy.js",
+      "file": "cypress\\e2e\\tests\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eecbd4d8-4000-414a-b353-e72ded9f1dbe",
+          "title": "Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should log in a valid user",
+              "fullTitle": "Authentication Should log in a valid user",
+              "timedOut": null,
+              "duration": 10175,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products');",
+              "err": {},
+              "uuid": "3761ba56-7de2-41d6-be26-0f3ab1fb4358",
+              "parentUUID": "eecbd4d8-4000-414a-b353-e72ded9f1dbe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Log in with invalid email",
+              "fullTitle": "Authentication Log in with invalid email",
+              "timedOut": null,
+              "duration": 9649,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Login with invalid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\ncy.get(_authentication.default.emailField).type('wetest22@yopmail.com'); //email not registered\ncy.get(_authentication.default.passwordField).type('notTrue123!');\ncy.get(_authentication.default.submitBtn).should('be.visible');\ncy.get(_authentication.default.submitBtn).click();\ncy.get(_authentication.default.errorMsg).should('be.visible');\ncy.get(_authentication.default.errorMsg).should('have.text', 'Wrong email or password.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<div.auth0-global-message.auth0-global-message-error>' to have text 'Wrong email or password.', but the text was 'Your account has been blocked after multiple consecutive login attempts.'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<div.auth0-global-message.auth0-global-message-error>' to have text 'Wrong email or password.', but the text was 'Your account has been blocked after multiple consecutive login attempts.'\n    at Context.eval (webpack:///./cypress/e2e/tests/login.cy.js:26:35)",
+                "diff": "- 'Your account has been blocked after multiple consecutive login attempts.'\n+ 'Wrong email or password.'\n"
+              },
+              "uuid": "55402563-2c02-4cf6-9d61-ebabbe557ece",
+              "parentUUID": "eecbd4d8-4000-414a-b353-e72ded9f1dbe",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3761ba56-7de2-41d6-be26-0f3ab1fb4358"
+          ],
+          "failures": [
+            "55402563-2c02-4cf6-9d61-ebabbe557ece"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 19824,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
