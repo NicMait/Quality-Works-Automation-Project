@@ -15,7 +15,6 @@ describe('Add To Cart', () => {
 		cy.url().should('contain', 'products')
 			//Add a product to cart
 		AddToCart.addToCart()
-		cy.get(AddToCart.cartSummary).should('be.visible')
 		cy.get(AddToCart.cartSummary).should('have.text',' Cart summary ')
 		cy.get(AddToCart.heelsHeader).should('be.visible')
 		cy.get(AddToCart.heelsHeader).should('have.text'," Quality Heal Shoes ")
