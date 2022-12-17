@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-17T06:32:22.482Z",
+    "end": "2022-12-17T06:32:44.629Z",
+    "duration": 22147,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3632fd36-7a8f-4330-9837-7cd007443d8a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\registration.cy.js",
+      "file": "cypress\\e2e\\tests\\registration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "46ccf1f1-ed81-4524-8e08-50d35bd8ce2d",
+          "title": "Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should register a new user with email",
+              "fullTitle": "Authentication Should register a new user with email",
+              "timedOut": null,
+              "duration": 12875,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Register using email\ncy.get('#signInOrRegister').should('be.visible');\ncy.get('#signInOrRegister').click();\ncy.get(_authentication.default.signUp).should('be.visible');\ncy.get(_authentication.default.signUp).click();\ncy.get('[type=email]').type(email);\ncy.get('[type=password]').type('Password123!');\ncy.get(_authentication.default.submitBtn).should('be.visible');\ncy.get(_authentication.default.submitBtn).click();\ncy.get(_authentication.default.banner).should('be.visible');\ncy.get(_authentication.default.banner).should('have.text', \"Products\");",
+              "err": {},
+              "uuid": "8b626a63-378b-44fb-beb4-3440a3c4e8c4",
+              "parentUUID": "46ccf1f1-ed81-4524-8e08-50d35bd8ce2d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should throw an error for invalid email address",
+              "fullTitle": "Authentication Should throw an error for invalid email address",
+              "timedOut": null,
+              "duration": 4750,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#signInOrRegister').should('be.visible');\ncy.get('#signInOrRegister').click();\ncy.get(_authentication.default.signUp).should('be.visible');\ncy.get(_authentication.default.signUp).click();\ncy.get('[type=email]').type('ree@com'); //email is not  valid\ncy.get('[type=password]').type('Password123!');\ncy.get(_authentication.default.submitBtn).should('be.visible');\ncy.get(_authentication.default.submitBtn).click();\ncy.get(_authentication.default.emailError).should('be.visible');\ncy.get(_authentication.default.emailError).should('have.text', \"Email is invalid\");",
+              "err": {},
+              "uuid": "e2e5de4e-c753-4224-b8f9-51dba7b7176c",
+              "parentUUID": "46ccf1f1-ed81-4524-8e08-50d35bd8ce2d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should throw an error when you register with invalid password",
+              "fullTitle": "Authentication Should throw an error when you register with invalid password",
+              "timedOut": null,
+              "duration": 4061,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#signInOrRegister').should('be.visible');\ncy.get('#signInOrRegister').click();\ncy.get(_authentication.default.signUp).should('be.visible');\ncy.get(_authentication.default.signUp).click();\ncy.get('[type=email]').type('yyy@yopmail.com');\ncy.get('[type=password]').type('password123'); //password is not valid\ncy.get(_authentication.default.submitBtn).should('be.visible');\ncy.get(_authentication.default.submitBtn).click();\ncy.get(_authentication.default.passwordError).should('be.visible');\ncy.get(_authentication.default.passwordError).should('have.text', \"Password is invalid\");",
+              "err": {},
+              "uuid": "9b80e9c9-e3d5-44e9-845e-f182e6359832",
+              "parentUUID": "46ccf1f1-ed81-4524-8e08-50d35bd8ce2d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8b626a63-378b-44fb-beb4-3440a3c4e8c4",
+            "e2e5de4e-c753-4224-b8f9-51dba7b7176c",
+            "9b80e9c9-e3d5-44e9-845e-f182e6359832"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 21686,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

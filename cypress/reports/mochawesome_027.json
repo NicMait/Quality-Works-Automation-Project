@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-17T05:54:07.571Z",
+    "end": "2022-12-17T05:54:51.880Z",
+    "duration": 44309,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aea2fe8d-dff7-4ae5-94cf-07a9c81f6159",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\filterandsort.cy.js",
+      "file": "cypress\\e2e\\tests\\filterandsort.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "43bb9ddc-9aa2-441e-9a7b-3ec59e2f5a9b",
+          "title": "Filter and Sort",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should sort product list from A to Z",
+              "fullTitle": "Filter and Sort Should sort product list from A to Z",
+              "timedOut": null,
+              "duration": 16242,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //sort products from A to Z\ncy.get(_filter.default.sortOptions).scrollIntoView();\ncy.wait(3000);\ncy.get(_filter.default.sortOptions).select('A to Z');\ncy.wait(1000);\nvar productList = ['Dell Laptop', 'Gray Couch', 'HP Laptop', 'Mackbook Pro', 'Quality Blue Shoes', 'Quality Cargo Pants', 'Quality Fitted Hat', 'Quality Heal Shoes', 'Quality Hooded Sweatshirt', 'Quality Jeans Pants', 'Quality Kids Tshirt', 'Quality Mousepad', 'Quality Mug', 'Quality Pillow', 'Quality Pink Pants', 'Quality Stylish Shoes', 'Quality Sweatshirt', 'Quality Trucker Hat', 'Quality Tshirt', 'Quality Vneck', 'Red Couch', 'White Couch'];\nproductList.sort();\ncy.get(_filter.default.productList).each(($elem, index) => {\n  expect($elem.text()).equal(productList[index]);\n});",
+              "err": {},
+              "uuid": "1f5ce68b-7899-46bb-93c6-00be8901da72",
+              "parentUUID": "43bb9ddc-9aa2-441e-9a7b-3ec59e2f5a9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should sort product list from Z to A",
+              "fullTitle": "Filter and Sort Should sort product list from Z to A",
+              "timedOut": null,
+              "duration": 13136,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //sort products from Z to A\ncy.get(_filter.default.sortOptions).scrollIntoView();\ncy.wait(3000);\ncy.get(_filter.default.sortOptions).select('Z to A');\ncy.wait(1000);\nvar productList = ['Dell Laptop', 'Gray Couch', 'HP Laptop', 'Mackbook Pro', 'Quality Blue Shoes', 'Quality Cargo Pants', 'Quality Fitted Hat', 'Quality Heal Shoes', 'Quality Hooded Sweatshirt', 'Quality Jeans Pants', 'Quality Kids Tshirt', 'Quality Mousepad', 'Quality Mug', 'Quality Pillow', 'Quality Pink Pants', 'Quality Stylish Shoes', 'Quality Sweatshirt', 'Quality Trucker Hat', 'Quality Tshirt', 'Quality Vneck', 'Red Couch', 'White Couch'];\nproductList.sort().reverse();\ncy.get(_filter.default.productList).each(($elem, index) => {\n  expect($elem.text()).equal(productList[index]);\n});",
+              "err": {},
+              "uuid": "d8bf593a-e4d9-4c32-bd41-1842f675eeae",
+              "parentUUID": "43bb9ddc-9aa2-441e-9a7b-3ec59e2f5a9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should sort product list by price from high to low",
+              "fullTitle": "Filter and Sort Should sort product list by price from high to low",
+              "timedOut": null,
+              "duration": 14184,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //sort products by price from high to low\ncy.get(_filter.default.sortOptions).scrollIntoView();\ncy.wait(3000);\ncy.get(_filter.default.sortOptions).select('High to low');\ncy.wait(1000);\nvar priceList = [2000, 1000, 680, 550, 320, 234, 50, 44, 40, 30, 28, 24, 20, 20, 20, 20, 20, 20, 20, 17, 15, 15];\npriceList.sort(function (a, b) {\n  return b - a;\n});\ncy.wait(1000);\ncy.get(_filter.default.priceList).each(($elem, index) => {\n  expect(parseInt($elem.text().replace('$', ''))).equal(priceList[index]);\n});",
+              "err": {},
+              "uuid": "0735f8ca-b0c3-451f-92b2-b1eede0c513d",
+              "parentUUID": "43bb9ddc-9aa2-441e-9a7b-3ec59e2f5a9b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1f5ce68b-7899-46bb-93c6-00be8901da72",
+            "d8bf593a-e4d9-4c32-bd41-1842f675eeae",
+            "0735f8ca-b0c3-451f-92b2-b1eede0c513d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 43562,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

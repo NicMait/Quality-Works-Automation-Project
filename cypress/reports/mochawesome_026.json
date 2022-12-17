@@ -1,0 +1,167 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-17T05:52:13.614Z",
+    "end": "2022-12-17T05:53:46.903Z",
+    "duration": 93289,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "33507797-beda-400f-8a9b-860e91fd2a43",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\datadriven.cy.js",
+      "file": "cypress\\e2e\\tests\\datadriven.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "24d20f6a-9a17-4bf0-afd9-172b4d306e74",
+          "title": "Data Driven Billing Information",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add Complete Billing Information",
+              "fullTitle": "Data Driven Billing Information Add Complete Billing Information",
+              "timedOut": null,
+              "duration": 16539,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get('#signInOrRegister').should('be.visible');\ncy.get('#signInOrRegister').click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!'); //Add products to the cart\n\n_addtocart.default.addToCart();\ncy.get(_addtocart.default.backToShopping).should('be.visible');\ncy.get(_addtocart.default.backToShopping).click();\n_addtocart.default.addToCartTwo();\ncy.get(_addtocart.default.cartSummary).should('be.visible');\ncy.get(_addtocart.default.cartSummary).should('have.text', ' Cart summary '); //Navigate to checkout\ncy.get(_checkout.default.checkoutBtn).scrollIntoView();\ncy.wait(1500);\ncy.get(_checkout.default.checkoutBtn).should('be.visible');\ncy.get(_checkout.default.checkoutBtn).click(); //Enter billing information\ncy.get(_checkout.default.fullName).type(_billing.default.valid.fullname);\ncy.get(_checkout.default.emailAddress).type(_billing.default.valid.email);\ncy.get(_checkout.default.streetAddress).type(_billing.default.valid.streetaddress);\ncy.get(_checkout.default.aptNumber).type(_billing.default.valid.Apt);\ncy.get(_checkout.default.city).type(_billing.default.valid.City);\ncy.get(_checkout.default.country).select('Japan');\ncy.get(_checkout.default.province).type(_billing.default.valid.Province);\ncy.get(_checkout.default.zipCode).type(_billing.default.valid.ZipCode);\ncy.get(_checkout.default.paymentBtn).click();\ncy.get(_checkout.default.paymentHeader).scrollIntoView();\ncy.get(_checkout.default.paymentHeader).should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-modal__close-title`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.snipcart-modal__close-title`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/tests/datadriven.cy.js:21:36)",
+                "diff": null
+              },
+              "uuid": "9ce19b52-4106-4182-b5ad-101c94fbf54c",
+              "parentUUID": "24d20f6a-9a17-4bf0-afd9-172b4d306e74",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Omit Full Name from Billing Information",
+              "fullTitle": "Data Driven Billing Information Omit Full Name from Billing Information",
+              "timedOut": null,
+              "duration": 24930,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get('#signInOrRegister').should('be.visible');\ncy.get('#signInOrRegister').click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!'); //Add products to the cart\n\n_addtocart.default.addToCart();\ncy.get(_addtocart.default.backToShopping).should('be.visible');\ncy.get(_addtocart.default.backToShopping).click();\n_addtocart.default.addToCartTwo();\ncy.get(_addtocart.default.cartSummary).should('be.visible');\ncy.get(_addtocart.default.cartSummary).should('have.text', ' Cart summary '); //Navigate to checkout\ncy.get(_checkout.default.checkoutBtn).scrollIntoView();\ncy.wait(1500);\ncy.get(_checkout.default.checkoutBtn).should('be.visible');\ncy.get(_checkout.default.checkoutBtn).click(); //Enter billing information without full name\ncy.get(_checkout.default.emailAddress).type(_billing.default.missingname.email);\ncy.get(_checkout.default.streetAddress).type(_billing.default.missingname.streetaddress);\ncy.get(_checkout.default.aptNumber).type(_billing.default.missingname.Apt);\ncy.get(_checkout.default.city).type(_billing.default.missingname.City);\ncy.get(_checkout.default.country).select('Namibia');\ncy.get(_checkout.default.province).type(_billing.default.missingname.Province);\ncy.get(_checkout.default.zipCode).type(_billing.default.missingname.ZipCode);\ncy.get(_checkout.default.paymentBtn).click({\n  force: true\n});",
+              "err": {},
+              "uuid": "eac32abd-8873-4121-a3b1-9c6805ff6ae9",
+              "parentUUID": "24d20f6a-9a17-4bf0-afd9-172b4d306e74",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Omit Email Address from Billing Information",
+              "fullTitle": "Data Driven Billing Information Omit Email Address from Billing Information",
+              "timedOut": null,
+              "duration": 24864,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get('#signInOrRegister').should('be.visible');\ncy.get('#signInOrRegister').click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!'); //Add products to the cart\n\n_addtocart.default.addToCart();\ncy.get(_addtocart.default.backToShopping).should('be.visible');\ncy.get(_addtocart.default.backToShopping).click();\n_addtocart.default.addToCartTwo();\ncy.get(_addtocart.default.cartSummary).should('be.visible');\ncy.get(_addtocart.default.cartSummary).should('have.text', ' Cart summary '); //Navigate to checkout\ncy.get(_checkout.default.checkoutBtn).scrollIntoView();\ncy.wait(1500);\ncy.get(_checkout.default.checkoutBtn).should('be.visible');\ncy.get(_checkout.default.checkoutBtn).click(); //Enter billing information without email address\ncy.get(_checkout.default.fullName).type(_billing.default.missingemail.fullname);\ncy.get(_checkout.default.streetAddress).type(_billing.default.missingemail.streetaddress);\ncy.get(_checkout.default.aptNumber).type(_billing.default.missingemail.Apt);\ncy.get(_checkout.default.city).type(_billing.default.missingemail.City);\ncy.get(_checkout.default.country).select('France');\ncy.get(_checkout.default.province).type(_billing.default.missingemail.Province);\ncy.get(_checkout.default.zipCode).type(_billing.default.missingemail.ZipCode);\ncy.get(_checkout.default.paymentBtn).click();\ncy.get(_checkout.default.emailError).scrollIntoView();\ncy.get(_checkout.default.emailError).should('be.visible');",
+              "err": {},
+              "uuid": "ed28faba-7e47-4db1-9536-2345b49a1b2a",
+              "parentUUID": "24d20f6a-9a17-4bf0-afd9-172b4d306e74",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Omit Zip Code from Billing Information",
+              "fullTitle": "Data Driven Billing Information Omit Zip Code from Billing Information",
+              "timedOut": null,
+              "duration": 26263,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get('#signInOrRegister').should('be.visible');\ncy.get('#signInOrRegister').click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!'); //Add products to the cart\n\n_addtocart.default.addToCart();\ncy.get(_addtocart.default.backToShopping).should('be.visible');\ncy.get(_addtocart.default.backToShopping).click();\n_addtocart.default.addToCartTwo();\ncy.get(_addtocart.default.cartSummary).should('be.visible');\ncy.get(_addtocart.default.cartSummary).should('have.text', ' Cart summary '); //Navigate to checkout\ncy.get(_checkout.default.checkoutBtn).scrollIntoView();\ncy.wait(1500);\ncy.get(_checkout.default.checkoutBtn).should('be.visible');\ncy.get(_checkout.default.checkoutBtn).click(); //Enter billing information without zipcode\ncy.get(_checkout.default.fullName).type(_billing.default.missingzipcode.fullname);\ncy.get(_checkout.default.emailAddress).type(_billing.default.missingzipcode.email);\ncy.get(_checkout.default.streetAddress).type(_billing.default.missingzipcode.streetaddress);\ncy.get(_checkout.default.aptNumber).type(_billing.default.missingzipcode.Apt);\ncy.get(_checkout.default.city).type(_billing.default.missingzipcode.City);\ncy.get(_checkout.default.country).select('Brazil');\ncy.get(_checkout.default.province).type(_billing.default.missingzipcode.Province);\ncy.get(_checkout.default.paymentBtn).click();\ncy.get(_checkout.default.zipcodeError).scrollIntoView();\ncy.get(_checkout.default.zipcodeError).should('be.visible');",
+              "err": {},
+              "uuid": "d75667cb-92d3-4423-8bcf-49e392ec58db",
+              "parentUUID": "24d20f6a-9a17-4bf0-afd9-172b4d306e74",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eac32abd-8873-4121-a3b1-9c6805ff6ae9",
+            "ed28faba-7e47-4db1-9536-2345b49a1b2a",
+            "d75667cb-92d3-4423-8bcf-49e392ec58db"
+          ],
+          "failures": [
+            "9ce19b52-4106-4182-b5ad-101c94fbf54c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 92596,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-17T05:33:28.004Z",
+    "end": "2022-12-17T05:34:14.209Z",
+    "duration": 46205,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "357b38da-db53-4a2a-8e75-674232f44819",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\productdetails.cy.js",
+      "file": "cypress\\e2e\\tests\\productdetails.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e9e8df73-d1a8-4981-9953-923d4f4b5316",
+          "title": "Product Details",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to a related product",
+              "fullTitle": "Product Details Navigate to a related product",
+              "timedOut": null,
+              "duration": 19394,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.get(_authentication.default.banner).should('be.visible');\ncy.get(_authentication.default.banner).should('have.text', \"Products\"); //Select a product\ncy.get(_details.default.sweatShirt).should('be.visible');\ncy.get(_details.default.sweatShirt).click();\ncy.url().should('contain', 'quality-sweatshirt');\ncy.get(_details.default.productHeader).should('have.text', \"Quality Sweatshirt \"); //Related Products\ncy.get(_details.default.relatedHeader).scrollIntoView();\ncy.get(_details.default.relatedHeader).should('have.text', \"Related Products\");\ncy.get(_details.default.relatedProductName).should('have.text', \"Quality Hooded Sweatshirt\");\ncy.get(_details.default.relatedProduct).should('be.visible');\ncy.get(_details.default.relatedProduct).click();\ncy.url().should('contain', 'quality-sweatshirt-hooded');\ncy.get(_details.default.productHeader).should('have.text', \"Quality Hooded Sweatshirt \");",
+              "err": {
+                "message": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Network request failed\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                "estack": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Network request failed\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n    at s.onerror (https://cdn.snipcart.com/themes/v3.0/default/snipcart.js:1:26053)",
+                "diff": null
+              },
+              "uuid": "3267facb-89de-48af-9948-6d53c12cbb1c",
+              "parentUUID": "e9e8df73-d1a8-4981-9953-923d4f4b5316",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Confirm that product description exists",
+              "fullTitle": "Product Details Confirm that product description exists",
+              "timedOut": null,
+              "duration": 10520,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.get(_authentication.default.banner).should('be.visible');\ncy.get(_authentication.default.banner).should('have.text', \"Products\"); //Select a product\ncy.get(_details.default.sweatShirt).should('be.visible');\ncy.get(_details.default.sweatShirt).click();\ncy.url().should('contain', 'quality-sweatshirt');\ncy.get(_details.default.productHeader).should('have.text', \"Quality Sweatshirt \"); //Product Details\ncy.get(_details.default.productDescription).should('be.visible');\ncy.get(_details.default.productDescription).should('have.text', \"Hanes Men's Sweatshirt, EcoSmart Fleece Crewneck Sweatshirt, Cotton-Blend Fleece Sweatshirt, Plush Fleece Pullover Sweatshirt\");",
+              "err": {},
+              "uuid": "7c9a8486-4929-48fc-835c-09ddafb60a45",
+              "parentUUID": "e9e8df73-d1a8-4981-9953-923d4f4b5316",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Increase the quantity of a product from the details page and add item to cart",
+              "fullTitle": "Product Details Increase the quantity of a product from the details page and add item to cart",
+              "timedOut": null,
+              "duration": 15833,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.get(_authentication.default.banner).should('be.visible');\ncy.get(_authentication.default.banner).should('have.text', \"Products\"); //Select a product\ncy.get(_details.default.sweatShirt).should('be.visible');\ncy.get(_details.default.sweatShirt).click();\ncy.url().should('contain', 'quality-sweatshirt');\ncy.get(_details.default.productHeader).should('have.text', \"Quality Sweatshirt \"); //Increase product quantity\ncy.get(_details.default.productIncrease).click();\ncy.get(_details.default.productIncrease).click();\ncy.get(_details.default.productIncrease).click(); //Add item to cart\ncy.get(_details.default.sweaterAddToCart).click();\ncy.get(_addtocart.default.cartSummary).should('be.visible');\ncy.get(_addtocart.default.cartSummary).should('have.text', ' Cart summary ');\ncy.get(_details.default.sweaterHeader).should('be.visible');\ncy.get(_details.default.sweaterHeader).should('have.text', \" Quality Sweatshirt \");\ncy.get(_details.default.sweaterQty).should('have.text', \"4\");",
+              "err": {},
+              "uuid": "c6a4bac3-a544-4b1a-b943-9af7db81d57f",
+              "parentUUID": "e9e8df73-d1a8-4981-9953-923d4f4b5316",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7c9a8486-4929-48fc-835c-09ddafb60a45",
+            "c6a4bac3-a544-4b1a-b943-9af7db81d57f"
+          ],
+          "failures": [
+            "3267facb-89de-48af-9948-6d53c12cbb1c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 45747,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
