@@ -30,7 +30,6 @@ describe('Add To Cart', () => {
 	 cy.url().should('contain', 'products')
 	  //Add a product to cart
 	 AddToCart.addToCart()
-	 cy.get(AddToCart.cartSummary).should('be.visible')
 	 cy.get(AddToCart.cartSummary).should('have.text',' Cart summary ')
 	 cy.get(AddToCart.heelsHeader).should('be.visible')
 	 cy.get(AddToCart.heelsHeader).should('have.text'," Quality Heal Shoes ")
@@ -58,7 +57,6 @@ describe('Add To Cart', () => {
    cy.get(AddToCart.mugAddToCart).should('be.visible')
 	    cy.wait(1500)
 	 cy.get(AddToCart.mugAddToCart).click()
-	 cy.get(AddToCart.cartSummary).should('be.visible')
 	 cy.get(AddToCart.cartSummary).should('have.text',' Cart summary ')
 	 cy.get(AddToCart.mugHeader).should('be.visible')
 	 cy.get(AddToCart.mugHeader).should('have.text'," Quality Mug ")
