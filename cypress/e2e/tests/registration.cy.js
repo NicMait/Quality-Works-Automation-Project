@@ -49,8 +49,6 @@ describe('Authentication', () => {
 		cy.get (Authentication.passwordError).should('be.visible')
 		cy.get (Authentication.passwordError).should('have.text', "Password is invalid")
 
-
-
 	})
 
 })

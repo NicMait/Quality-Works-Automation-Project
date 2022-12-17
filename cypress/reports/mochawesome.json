@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-17T19:09:40.810Z",
+    "end": "2022-12-17T19:10:00.414Z",
+    "duration": 19604,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "80e1edf4-02ac-45b4-b095-b13d9969d795",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\registration.cy.js",
+      "file": "cypress\\e2e\\tests\\registration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f8e97ed6-2bd6-4cf6-8079-0a42eafdee3f",
+          "title": "Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should register a new user with email",
+              "fullTitle": "Authentication Should register a new user with email",
+              "timedOut": null,
+              "duration": 11239,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Register using email\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\ncy.get(_authentication.default.signUp).should('be.visible');\ncy.get(_authentication.default.signUp).click();\ncy.get(_authentication.default.emailField).type(email);\ncy.get(_authentication.default.passwordField).type('Password123!');\ncy.get(_authentication.default.submitBtn).should('be.visible');\ncy.get(_authentication.default.submitBtn).click();\ncy.get(_authentication.default.banner).should('be.visible');\ncy.get(_authentication.default.banner).should('have.text', \"Products\");",
+              "err": {},
+              "uuid": "27eb7ce0-e660-4c8e-912d-5feb30efa541",
+              "parentUUID": "f8e97ed6-2bd6-4cf6-8079-0a42eafdee3f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should throw an error for invalid email address",
+              "fullTitle": "Authentication Should throw an error for invalid email address",
+              "timedOut": null,
+              "duration": 3911,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\ncy.get(_authentication.default.signUp).should('be.visible');\ncy.get(_authentication.default.signUp).click();\ncy.get(_authentication.default.emailField).type('ree@com'); //email is not  valid\ncy.get(_authentication.default.passwordField).type('Password123!');\ncy.get(_authentication.default.submitBtn).should('be.visible');\ncy.get(_authentication.default.submitBtn).click();\ncy.get(_authentication.default.emailError).should('be.visible');\ncy.get(_authentication.default.emailError).should('have.text', \"Email is invalid\");",
+              "err": {},
+              "uuid": "722699aa-a13c-4c50-9bf1-256b6d3c2db5",
+              "parentUUID": "f8e97ed6-2bd6-4cf6-8079-0a42eafdee3f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should throw an error when you register with invalid password",
+              "fullTitle": "Authentication Should throw an error when you register with invalid password",
+              "timedOut": null,
+              "duration": 4143,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\ncy.get(_authentication.default.signUp).should('be.visible');\ncy.get(_authentication.default.signUp).click();\ncy.get(_authentication.default.emailField).type('marsenal2@yopmail.com');\ncy.get(_authentication.default.passwordField).type('password123'); //password is not valid\ncy.get(_authentication.default.submitBtn).should('be.visible');\ncy.get(_authentication.default.submitBtn).click();\ncy.get(_authentication.default.passwordError).should('be.visible');\ncy.get(_authentication.default.passwordError).should('have.text', \"Password is invalid\");",
+              "err": {},
+              "uuid": "3a0ef5d5-494e-4c1b-b898-d876162958b7",
+              "parentUUID": "f8e97ed6-2bd6-4cf6-8079-0a42eafdee3f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "27eb7ce0-e660-4c8e-912d-5feb30efa541",
+            "722699aa-a13c-4c50-9bf1-256b6d3c2db5",
+            "3a0ef5d5-494e-4c1b-b898-d876162958b7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19293,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
