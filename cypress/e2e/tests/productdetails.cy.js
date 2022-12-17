@@ -53,7 +53,7 @@ describe('Product Details', () => {
 
 	})
 
-	it.only('Increase the quantity of a product from the details page and add item to cart', () => {
+	it('Increase the quantity of a product from the details page and add item to cart', () => {
 		// Login with valid credentials
 		cy.get(Authentication.signInRegisterBtn).should('be.visible')
 		cy.get(Authentication.signInRegisterBtn).click()
