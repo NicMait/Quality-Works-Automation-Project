@@ -46,7 +46,7 @@ Executes all tests in the Chrome browser and generates a Mochawesome report.
 # Execute Specific Tests
 
  "add to cart":
-```npx cypress run --spec cypress/e2e/tests/datadriven.cy.js```
+```npx cypress run --spec cypress/e2e/tests/addtocart.cy.js```
 
 "login":
 ```npx cypress run --spec cypress/e2e/tests/login.cy.js```

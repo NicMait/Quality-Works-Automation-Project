@@ -9,7 +9,7 @@
     "test": "npm-run-all clean run report -c",
     "test:spec": "npm-run-all clean \"run -- --spec {1}\" report -c --",
     "report": "npx mochawesome-merge cypress/reports/*.json > mochawesome.json && npx marge mochawesome.json && start mochawesome-report/mochawesome.html && rm -f mochawesome.json",
-    "add to cart":"npx cypress run --spec cypress/e2e/tests/datadriven.cy.js",
+    "add to cart":"npx cypress run --spec cypress/e2e/tests/addtocart.cy.js",
     "login":"npx cypress run --spec cypress/e2e/tests/login.cy.js",
     "registration":"npx cypress run --spec cypress/e2e/tests/registration.cy.js",
     "cart":"npx cypress run --spec cypress/e2e/tests/cart.cy.js",
