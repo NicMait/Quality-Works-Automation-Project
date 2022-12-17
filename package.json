@@ -1,7 +1,7 @@
 {
   "name": "quality-works-automation-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Final Project for Quality Work Test Automation Bootcamp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/NicMait/Quality-Works-Automation-Project.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nicole Maitland",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NicMait/Quality-Works-Automation-Project/issues"
