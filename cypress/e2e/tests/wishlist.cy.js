@@ -1,6 +1,7 @@
 import Authentication from '../pages/authentication.page'
 import Wishlist from '../pages/wishlist.page'
 import Gallery from '../pages/productgallery.page'
+import AddToCart from '../pages/addtocart.page'
 
 describe('Wishlist', () => {
 	beforeEach(() => {
@@ -41,7 +42,6 @@ describe('Wishlist', () => {
 	  cy.get(Wishlist.vneckFave).click()//add vneck to favorites
 
 	 //confirm addition to faves
-
 	  cy.get(Wishlist.faveCount).should('have.text',"Favorites [1]")
 
   })
@@ -63,7 +63,7 @@ describe('Wishlist', () => {
 
   })
 
-  it.only('Add multiple items to favorites', () => {
+  it('Add multiple items to favorites', () => {
 	    // Login with valid credentials
    cy.get(Authentication.signInRegisterBtn).should('be.visible')
    cy.get(Authentication.signInRegisterBtn).click()
@@ -83,5 +83,25 @@ describe('Wishlist', () => {
 
 
 	})
+
+	it('Add a product to cart from favorites', () => {
+		// Login with valid credentials
+    cy.get(Authentication.signInRegisterBtn).should('be.visible')
+    cy.get(Authentication.signInRegisterBtn).click()
+    Authentication.login('marsenal2@yopmail.com', 'Password123!')
+    cy.url().should('contain', 'products')
+
+	    //Add a products to favorites
+    Wishlist.fave()
+
+	    //Add to cart
+	  cy.get(Wishlist.addToCart).click()
+    cy.get(AddToCart.cartSummary).should('be.visible')
+	  cy.get(AddToCart.cartSummary).should('have.text',' Cart summary ')
+	  cy.get(Wishlist.mouseHeader).should('be.visible')
+	  cy.get(Wishlist.mouseHeader).should('have.text'," Quality Mousepad ")
+
+
+  })
 
 })
