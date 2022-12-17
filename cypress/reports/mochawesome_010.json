@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-17T05:11:53.577Z",
+    "end": "2022-12-17T05:12:23.895Z",
+    "duration": 30318,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "387c9096-3645-461f-9ef7-ba6f837c6c40",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\search.cy.js",
+      "file": "cypress\\e2e\\tests\\search.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c64b0f64-4151-4230-b975-125d43750217",
+          "title": "Search",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should return exact results for a full name search",
+              "fullTitle": "Search Should return exact results for a full name search",
+              "timedOut": null,
+              "duration": 11270,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Search for the product \"Red Couch\"\ncy.get(_search.default.searchBar).type('Red Couch');\ncy.get(_search.default.redCouch).should('be.visible');\ncy.get(_search.default.redCouch).should('have.text', 'Red Couch');",
+              "err": {},
+              "uuid": "df75e62f-f43e-45c7-99df-dc2829332bb6",
+              "parentUUID": "c64b0f64-4151-4230-b975-125d43750217",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should return correct results for a partial name search",
+              "fullTitle": "Search Should return correct results for a partial name search",
+              "timedOut": null,
+              "duration": 9116,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Search for \"pants\"\ncy.get(_search.default.searchBar).type('Pants');\ncy.get(_search.default.pinkPants).should('be.visible');\ncy.get(_search.default.cargoPants).should('be.visible');\ncy.get(_search.default.jeansPants).should('be.visible');",
+              "err": {},
+              "uuid": "239838e3-88a2-4ec6-a17e-9a702376a7fd",
+              "parentUUID": "c64b0f64-4151-4230-b975-125d43750217",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should reset the search filter",
+              "fullTitle": "Search Should reset the search filter",
+              "timedOut": null,
+              "duration": 9531,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login with valid credentials\ncy.get(_authentication.default.signInRegisterBtn).should('be.visible');\ncy.get(_authentication.default.signInRegisterBtn).click();\n_authentication.default.login('marsenal2@yopmail.com', 'Password123!');\ncy.url().should('contain', 'products'); //Search for \"Red Couch\"\ncy.get(_search.default.searchBar).type('Red Couch');\ncy.get(_search.default.redCouch).should('be.visible');\ncy.get(_search.default.redCouch).should('have.text', 'Red Couch'); //Reset the search\ncy.get(_search.default.resetBtn).click();\ncy.get(_search.default.allProducts).should('be.visible');\ncy.get(_search.default.allProducts).should('have.length', 22);",
+              "err": {},
+              "uuid": "8dc11d2d-1252-4c96-a405-b211276cea5c",
+              "parentUUID": "c64b0f64-4151-4230-b975-125d43750217",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "df75e62f-f43e-45c7-99df-dc2829332bb6",
+            "239838e3-88a2-4ec6-a17e-9a702376a7fd",
+            "8dc11d2d-1252-4c96-a405-b211276cea5c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 29917,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

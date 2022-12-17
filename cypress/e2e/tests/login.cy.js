@@ -18,7 +18,7 @@ describe('Authentication', () => {
 		// Login with invalid credentials
 		cy.get(Authentication.signInRegisterBtn).should('be.visible')
 		cy.get(Authentication.signInRegisterBtn).click()
-		cy.get(Authentication.emailField).type('wetest22@yopmail.com');//email not registered
+		cy.get(Authentication.emailField).type('blackinferno@yopmail.com');//email not registered
 		cy.get(Authentication.passwordField).type('notTrue123!')
 		cy.get(Authentication.submitBtn).should('be.visible')
 		cy.get(Authentication.submitBtn).click()
