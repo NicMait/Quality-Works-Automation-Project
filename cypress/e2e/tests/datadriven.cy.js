@@ -1,6 +1,5 @@
 import Authentication from '../pages/authentication.page'
 import AddToCart from '../pages/addtocart.page'
-import Cart from '../pages/cart.page'
 import Checkout from '../pages/checkout.page'
 import BillingData from '../data/billing.data'
 
